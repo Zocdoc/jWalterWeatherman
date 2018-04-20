@@ -64,6 +64,13 @@ func SetStdoutThreshold(threshold Threshold) {
 	reloadDefaultNotepad()
 }
 
+// SetStderrThreshold set the standard err threshold for the default notepad.
+// Error by default.
+func SetStderrThreshold(threshold Threshold) {
+	defaultNotepad.SetStderrThreshold(threshold)
+	reloadDefaultNotepad()
+}
+
 // SetPrefix set the prefix for the default logger. Empty by default.
 func SetPrefix(prefix string) {
 	defaultNotepad.SetPrefix(prefix)
@@ -86,7 +93,7 @@ func StdoutThreshold() Threshold {
 	return defaultNotepad.stdoutThreshold
 }
 
-// GetStdoutThreshold returns the defined Treshold for the log logger.
+// GetLogThreshold returns the defined Treshold for the log logger.
 func GetLogThreshold() Threshold {
 	return defaultNotepad.GetLogThreshold()
 }
@@ -94,6 +101,11 @@ func GetLogThreshold() Threshold {
 // GetStdoutThreshold returns the Treshold for the stdout logger.
 func GetStdoutThreshold() Threshold {
 	return defaultNotepad.GetStdoutThreshold()
+}
+
+// GetStderrThreshold returns the Treshold for the stderr logger.
+func GetStderrThreshold() Threshold {
+	return defaultNotepad.GetStderrThreshold()
 }
 
 // LogCountForLevel returns the number of log invocations for a given threshold.
